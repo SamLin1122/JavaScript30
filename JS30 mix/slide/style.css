@@ -8,6 +8,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0%
 }
 
 *, *:before, *:after {
@@ -24,7 +25,33 @@ body {
   transform: scale(0.98);
   transition: transform 0.5s;
 }
+.align-left {
+  float: left;
+  margin-right: 20px;
+}
 
+.align-right {
+  float: right;
+  margin-left: 20px;
+}
+
+.slide-in {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.align-left.slide-in {
+  transform: translateX(-50%) scale(0.5);
+}
+
+.align-right.slide-in {
+  transform: translateX(50%) scale(0.5);
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
 header {
   text-align: center;
   height: 50vh;
@@ -85,4 +112,21 @@ nav a {
   color: white;
   transition: all 0.2s;
   text-transform: uppercase;
+}
+
+.highlight {
+  transition: all 0.2s;
+  position: absolute;
+  top: 0;
+  background: rgba(23, 176, 187, 0.5);
+  left: 0;
+  z-index: 2;
+  border-radius: 20px;
+  display: block;
+}
+.site-wrap a {
+  text-decoration: none;
+  color: black;
+  background: rgba(0,0,0,0.05);
+  border-radius: 20px;
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>預快取</title>
+  <style type="text/css"> </style>
+</head>
+
+<body>
+  <div></div>
+  <script> //獲取瀏覽器頁面可見高度和寬度 
+    var _PageHeight = document.documentElement.clientHeight, _PageWidth = document.documentElement.clientWidth; 
+    //計算loading框距離頂部和左部的距離(loading框的寬度為215px,高度為61px) 
+    var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0, _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0; 
+    //在頁面未載入完畢之前顯示的loading Html自定義內容 
+    var _LoadingHtml = '<div ' + 'style="position:absolute;left:0;width:100%;top:0;background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;' + 'height:' + _PageHeight + 'px;">' + '<div ' + 'style="position: absolute; cursor1: wait; width: auto; height: 57px; line-height: 57px;padding-left: 50px;' + 'left: ' + _LoadingLeft + 'px;' + 'top:' + _LoadingTop + 'px; padding-right: 5px; ' + 'border: none; color: #696969; ' + 'background: #fff url(../../img/loadingImg.gif) no-repeat scroll 5px 10px;">' + '頁面載入中,請等待...' + '</div>' + '</div>'; 
+    //css樣式 //呈現loading效果 
+    document.write(_LoadingHtml); //監聽載入狀態改變 
+    document.onreadystatechange = completeLoading; //載入狀態為complete時移除loading效果 
+    function completeLoading() { setTimeout(function () { if (document.readyState == "complete") { var loadingMask = document.getElementById('loadingDiv'); loadingMask.parentNode.removeChild(loadingMask); } }, 1000); }</script>
+</body>
+
+</html>
