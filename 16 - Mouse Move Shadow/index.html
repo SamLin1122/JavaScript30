@@ -8,8 +8,8 @@
 
 <body>
 
-  <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
+  <div class="Shadow">
+    <h1>🔥Shadow!</h1>
   </div>
 
   <style>
@@ -22,7 +22,7 @@
       margin: 0;
     }
 
-    .hero {
+    .Shadow {
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -37,33 +37,24 @@
   </style>
 
   <script>
-    var hero = document.querySelector(".hero")
+    var Shadow = document.querySelector(".Shadow")
     var text = document.querySelector("h1")
     var walk = 500;
 
 
     function shadow(e) {
-      // var x = e.offsetX;
-      // var y = e.offsetY;
-      var { offsetWidth: width, offsetHeight: height } = hero
-      
-      // if (this !== e.target) {
-      //   x = x + e.target.offsetLeft;
-      //   y = y + e.target.offsetTop;
-      // }
+      var { offsetWidth: width, offsetHeight: height } = Shadow
 
       var xwalk = Math.round((e.x / width * walk) - (walk / 2));
       var ywalk = Math.round((e.y / height * walk) - (walk / 2));
       text.style.textShadow = `
-      ${xwalk}px ${ywalk}px 0 rgba(255,0,0,0.7),
-      ${xwalk * -1}px ${ywalk * -1}px 0 rgba(0,255,0,0.7),
-      ${ywalk}px ${xwalk * -1}px 0 rgba(0,0,255,0.7),
-      ${ywalk * -1}px ${xwalk}px 0 rgba(255,255,0,0.7)
-      `
-      //console.log(xwalk, ywalk)
+      ${xwalk}px ${ywalk}px 10px rgba(255,0,0,0.7),
+      ${xwalk * -1}px ${ywalk * -1}px 25px rgba(0,255,0,0.7),
+      ${ywalk}px ${xwalk * -1}px 15px rgba(0,0,255,0.7),
+      ${ywalk * -1}px ${xwalk}px 0 rgba(255,255,0,0.7)`
     }
 
-    hero.addEventListener("mousemove", shadow);
+    Shadow.addEventListener("mousemove", shadow);
 
   </script>
 </body>
